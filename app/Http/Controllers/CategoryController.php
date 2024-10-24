@@ -11,7 +11,35 @@ class CategoryController extends Controller
     public function index()
     {
         $models = Category::all();
-        return view('category',['models' => $models]);
-        // return view('category', compact('models'));
+        return view('Category.index', ['models' => $models]);
+
+    }
+    public function create()
+    {
+        return view('Category.add');
+    }
+    public function category(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        $category = new Category();
+        $category->name = $request->name;
+        $category->save();
+        return redirect('/');
+    }
+    public function destroy(Request $request)
+    {
+        // dd($request);
+        $id = $request->id;
+        $destroy = Category::findOrFail($id);
+        $destroy->delete();
+        return redirect('/');
+    }
+    public function show(Request $request)
+    {
+        $id = $request->id;
+        $data = Category::findOrFail($id);
+        return view('Category.show',['models' => $data]);
     }
 }

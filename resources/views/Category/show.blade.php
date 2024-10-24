@@ -9,34 +9,35 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Category</h1>
+                    <h1 class="m-0">Show</h1>
                 </div>
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-6 mt-2">
+                    <a href="/" class="btn btn-primary">Category</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col">
-                    <table class="table table-dark table-striped">
+                <div class="col-6">
+                    <table class="table table-striped">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
                         </tr>
-                         @foreach ($models as $model)
                         <tr>
-                            <th>{{$model->id}}</th>
-                            <td>{{$model->name}}</td>
+                            <th>{{$models->id}}</th>
+                            <td>{{$models->name}}</td>
                         </tr>
-                         @endforeach
                     </table>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
 </div>
 @endsection

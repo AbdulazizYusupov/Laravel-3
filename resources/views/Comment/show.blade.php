@@ -9,42 +9,43 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Comment</h1>
+                    <h1 class="m-0">Show</h1>
                 </div>
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            </div>
+            <div class="row mb-2">
+                <div class="col-sm-6 mt-2">
+                    <a href="/comment" class="btn btn-primary">Comment</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col">
-                    <table class="table table-dark table-striped">
+                <div class="col-6">
+                    <table class="table table-striped">
                         <tr>
                             <th>ID</th>
                             <th>Post_title</th>
                             <th>Body</th>
                         </tr>
-                         @foreach ($models as $model)
                         <tr>
-                            <th>{{$model->id}}</th>
+                            <th>{{$models->id}}</th>
                             <td>
                                 @foreach ($datas as $data)
-                                    @if ($data->id == $model->post_id)
-                                    {{$data->title}}
+                                    @if ($data->id == $models->post_id)
+                                        {{$data->title}}
                                     @endif
                                 @endforeach
                             </td>
-                            <td>{{$model->body}}</td>
+                            <td>{{$models->body}}</td>
                         </tr>
-                         @endforeach
                     </table>
                 </div>
             </div>
-        </div><!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
 </div>
 @endsection
